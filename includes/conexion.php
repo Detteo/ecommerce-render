@@ -9,5 +9,5 @@ $conn = mysqli_connect($host, $user, $pass, $dbname, $port);
 mysqli_set_charset($conn, 'utf8mb4');
 
 if (!$conn) {
-    die("Error de conexión: " . mysqli_connect_error());
-}git 
+    die("Error de conexion: " . mysqli_connect_error());
+}
