@@ -22,17 +22,17 @@ if (isset($_SESSION['usuario_id'])) {
 }
 
 if (isset($_POST['finalizar']) && count($items) > 0) {
+    $usuario_id = intval($_SESSION['usuario_id']);
     foreach ($items as $item) {
         $libro_id = intval($item['id']);
         $cantidad = intval($item['cantidad']);
         mysqli_query($conn, "UPDATE libros SET stock = stock - $cantidad WHERE id=$libro_id");
     }
-    $usuario_id = intval($_SESSION['usuario_id']);
     mysqli_query($conn, "DELETE FROM carrito WHERE usuario_id=$usuario_id");
+    session_write_close();
     header("Location: /pages/carrito.php?compra_exitosa=1");
     exit;
 }
-?>
 
 <section class="catalog-section">
     <h1 class="title">🛒 Mi Carrito</h1>
