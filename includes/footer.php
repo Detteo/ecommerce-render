@@ -7,17 +7,17 @@
         </div>
         <div class="footer-links">
             <h4>Géneros</h4>
-            <a href="/bookstore/pages/genero.php?g=Suspenso">Suspenso</a>
-            <a href="/bookstore/pages/genero.php?g=Fantasia">Fantasía</a>
-            <a href="/bookstore/pages/genero.php?g=Romance">Romance</a>
-            <a href="/bookstore/pages/genero.php?g=Accion y Aventura">Aventura</a>
-            <a href="/bookstore/pages/genero.php?g=Novela">Novela</a>
+            <a href="/pages/genero.php?g=Suspenso">Suspenso</a>
+            <a href="/pages/genero.php?g=Fantasia">Fantasía</a>
+            <a href="/pages/genero.php?g=Romance">Romance</a>
+            <a href="/pages/genero.php?g=Accion y Aventura">Aventura</a>
+            <a href="/pages/genero.php?g=Novela">Novela</a>
         </div>
         <div class="footer-links">
             <h4>Mi cuenta</h4>
-            <a href="/bookstore/pages/login.php">Iniciar sesión</a>
-            <a href="/bookstore/pages/registro.php">Crear cuenta</a>
-            <a href="/bookstore/pages/carrito.php">Mi carrito</a>
+            <a href="/pages/login.php">Iniciar sesión</a>
+            <a href="/pages/registro.php">Crear cuenta</a>
+            <a href="/pages/carrito.php">Mi carrito</a>
         </div>
     </div>
     <div class="footer-bottom">
@@ -25,6 +25,6 @@
     </div>
 </footer>
 
-<script src="/bookstore/assets/js/app.js"></script>
+<script src="/assets/js/app.js"></script>
 </body>
 </html>

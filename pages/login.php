@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['usuario'])) {
-    header("Location: /bookstore/index.php");
+    header("Location: /index.php");
     exit;
 }
 
@@ -21,7 +21,7 @@ if (isset($_POST['login'])) {
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['usuario'] = $correo;
         $_SESSION['usuario_id'] = $user['id'];
-        header("Location: /bookstore/index.php");
+        header("Location: /index.php");
         exit;
     } else {
         $error = 'Correo o contraseña incorrectos.';
@@ -74,7 +74,7 @@ include("../includes/header.php");
         </form>
 
         <p class="auth-link">
-            ¿No tienes cuenta? <a href="registro.php<?php echo $desde_carrito ? '?redirect=1' : ''; ?>">Crear cuenta gratis</a>
+            ¿No tienes cuenta? <a href="/pages/registro.php<?php echo $desde_carrito ? '?redirect=1' : ''; ?>">Crear cuenta gratis</a>
         </p>
     </div>
 </section>

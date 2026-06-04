@@ -7,7 +7,6 @@ $safe = mysqli_real_escape_string($conn, $buscar);
 $query = mysqli_query($conn,
     "SELECT * FROM libros WHERE titulo LIKE '%$safe%' OR autor LIKE '%$safe%' OR genero LIKE '%$safe%' ORDER BY titulo ASC"
 );
-$agregar_url = "agregar-carrito.php";
 ?>
 
 <section class="catalog-section">
@@ -26,7 +25,7 @@ $agregar_url = "agregar-carrito.php";
         if ($count === 0): ?>
         <div class="empty-state">
             <p>😕 No se encontraron resultados para "<?php echo htmlspecialchars($buscar); ?>".</p>
-            <a href="catalogo.php" class="btn-outline">Ver catálogo completo</a>
+            <a href="/pages/catalogo.php" class="btn-outline">Ver catálogo completo</a>
         </div>
         <?php endif; ?>
     </div>

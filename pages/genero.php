@@ -5,13 +5,12 @@ include("../includes/header.php");
 $genero = isset($_GET['g']) ? $_GET['g'] : '';
 $safe = mysqli_real_escape_string($conn, $genero);
 $query = mysqli_query($conn, "SELECT * FROM libros WHERE genero='$safe' ORDER BY titulo ASC");
-$agregar_url = "agregar-carrito.php";
 ?>
 
 <section class="catalog-section">
     <div class="catalog-header">
         <h1 class="title">📂 <?php echo htmlspecialchars($genero); ?></h1>
-        <a href="catalogo.php" class="btn-outline">← Ver todos los géneros</a>
+        <a href="/pages/catalogo.php" class="btn-outline">← Ver todos los géneros</a>
     </div>
 
     <?php if (isset($_GET['sin_stock'])): ?>
@@ -24,7 +23,7 @@ $agregar_url = "agregar-carrito.php";
     <?php if (isset($_GET['agregado'])): ?>
     <div class="alert alert-success" style="margin-bottom:24px;max-width:600px;margin-inline:auto;">
         <i class="fa-solid fa-circle-check"></i> ¡Libro agregado al carrito!
-        <a href="carrito.php">Ver carrito →</a>
+        <a href="/pages/carrito.php">Ver carrito →</a>
     </div>
     <?php endif; ?>
 
@@ -39,7 +38,7 @@ $agregar_url = "agregar-carrito.php";
         if ($count === 0): ?>
         <div class="empty-state">
             <p>😕 No se encontraron libros en este género.</p>
-            <a href="catalogo.php" class="btn-outline">Ver todos los libros</a>
+            <a href="/pages/catalogo.php" class="btn-outline">Ver todos los libros</a>
         </div>
         <?php endif; ?>
     </div>

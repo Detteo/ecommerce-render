@@ -62,4 +62,3 @@ if ('IntersectionObserver' in window) {
         observer.observe(card);
     });
 }
-

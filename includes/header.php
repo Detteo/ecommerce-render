@@ -9,7 +9,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookStore Premium</title>
-    <link rel="stylesheet" href="/bookstore/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -19,19 +19,19 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <header class="header" id="header">
     <div class="logo">
-        <a href="/bookstore/index.php">
+        <a href="/index.php">
             <span class="logo-icon">📚</span>
             <span class="logo-text">BookStore</span>
         </a>
     </div>
 
     <nav class="navbar">
-        <a href="/bookstore/index.php">Inicio</a>
-        <a href="/bookstore/pages/catalogo.php">Catálogo</a>
-        <a href="/bookstore/pages/carrito.php" class="nav-cart">
+        <a href="/index.php">Inicio</a>
+        <a href="/pages/catalogo.php">Catálogo</a>
+        <a href="/pages/carrito.php" class="nav-cart">
             <i class="fa-solid fa-cart-shopping"></i>
             Carrito
-           <?php
+            <?php
             $total_carrito = 0;
             if (isset($_SESSION['usuario_id'])) {
                 include_once dirname(__FILE__) . '/conexion.php';
@@ -45,11 +45,11 @@ if (session_status() === PHP_SESSION_NONE) {
         </a>
 
         <?php if (isset($_SESSION['usuario'])): ?>
-            <a href="/bookstore/pages/logout.php" class="btn-logout-nav">
+            <a href="/pages/logout.php" class="btn-logout-nav">
                 <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión
             </a>
         <?php else: ?>
-            <a href="/bookstore/pages/login.php" class="btn-nav-login">
+            <a href="/pages/login.php" class="btn-nav-login">
                 <i class="fa-solid fa-user"></i> Ingresar
             </a>
         <?php endif; ?>
@@ -62,7 +62,7 @@ if (session_status() === PHP_SESSION_NONE) {
     </div>
     <?php endif; ?>
 
-    <form action="/bookstore/pages/search.php" method="GET" class="search-box">
+    <form action="/pages/search.php" method="GET" class="search-box">
         <input type="text" name="buscar" placeholder="Buscar libro o autor..." autocomplete="off">
         <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>

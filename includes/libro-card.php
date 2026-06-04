@@ -1,9 +1,8 @@
-<?php ?>
 <div class="book-card">
     <div class="book-img-wrap">
-        <img src="/bookstore/assets/img/<?php echo htmlspecialchars($row['imagen']); ?>"
+        <img src="/assets/img/<?php echo htmlspecialchars($row['imagen']); ?>"
              alt="<?php echo htmlspecialchars($row['titulo']); ?>"
-             onerror="this.src='/bookstore/assets/img/placeholder.svg'">
+             onerror="this.src='/assets/img/placeholder.svg'">
         <span class="genre-tag"><?php echo htmlspecialchars($row['genero']); ?></span>
         <?php if ($row['stock'] <= 0): ?>
         <span class="stock-badge sin-stock">Sin stock</span>
@@ -20,7 +19,7 @@
         <div class="book-footer">
             <span class="price">$<?php echo number_format($row['precio'], 0, ',', '.'); ?></span>
             <?php if ($row['stock'] > 0): ?>
-            <a href="/bookstore/pages/agregar-carrito.php?id=<?php echo $row['id']; ?>" class="btn-cart">
+            <a href="/pages/agregar-carrito.php?id=<?php echo $row['id']; ?>" class="btn-cart">
                 <i class="fa-solid fa-cart-plus"></i> Agregar
             </a>
             <?php else: ?>

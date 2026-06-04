@@ -1,11 +1,10 @@
 <?php
-$host   = getenv('DB_HOST')   ?: 'mysql.railway.internal';
-$dbname = getenv('DB_NAME')   ?: 'railway';
-$user   = getenv('DB_USER')   ?: 'root';
-$pass   = getenv('DB_PASS')   ?: 'QvkPJfdTIeXBUighGrDDqQzRqACpgKit';
-$port   = getenv('DB_PORT')   ?: 3306;
+$host = 'localhost';
+$dbname = 'bookstore';
+$user = 'root';
+$pass = '';
 
-$conn = mysqli_connect($host, $user, $pass, $dbname, (int)$port);
+$conn = mysqli_connect($host, $user, $pass, $dbname);
 mysqli_set_charset($conn, 'utf8mb4');
 
 if (!$conn) {

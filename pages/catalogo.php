@@ -12,7 +12,6 @@ if ($genero_filtro !== '') {
 }
 
 $generos = ['Suspenso', 'Fantasia', 'Romance', 'Accion y Aventura', 'Novela'];
-$agregar_url = "agregar-carrito.php";
 ?>
 
 <section class="catalog-section">
@@ -21,9 +20,9 @@ $agregar_url = "agregar-carrito.php";
             <?php echo $genero_filtro ? '📂 ' . htmlspecialchars($genero_filtro) : '📚 Catálogo Premium'; ?>
         </h1>
         <div class="filter-bar">
-            <a href="catalogo.php" class="filter-btn <?php echo $genero_filtro === '' ? 'active' : ''; ?>">Todos</a>
+            <a href="/pages/catalogo.php" class="filter-btn <?php echo $genero_filtro === '' ? 'active' : ''; ?>">Todos</a>
             <?php foreach ($generos as $g): ?>
-            <a href="catalogo.php?g=<?php echo urlencode($g); ?>"
+            <a href="/pages/catalogo.php?g=<?php echo urlencode($g); ?>"
                class="filter-btn <?php echo $genero_filtro === $g ? 'active' : ''; ?>">
                 <?php echo htmlspecialchars($g); ?>
             </a>
@@ -41,7 +40,7 @@ $agregar_url = "agregar-carrito.php";
     <?php if (isset($_GET['agregado'])): ?>
     <div class="alert alert-success" style="margin-bottom:24px;max-width:600px;margin-inline:auto;">
         <i class="fa-solid fa-circle-check"></i> ¡Libro agregado al carrito!
-        <a href="carrito.php">Ver carrito →</a>
+        <a href="/pages/carrito.php">Ver carrito →</a>
     </div>
     <?php endif; ?>
 
@@ -56,7 +55,7 @@ $agregar_url = "agregar-carrito.php";
         if ($count === 0): ?>
         <div class="empty-state">
             <p>😕 No se encontraron libros en este género.</p>
-            <a href="catalogo.php" class="btn-outline">Ver todos los libros</a>
+            <a href="/pages/catalogo.php" class="btn-outline">Ver todos los libros</a>
         </div>
         <?php endif; ?>
     </div>

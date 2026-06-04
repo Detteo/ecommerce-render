@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['usuario'])) {
-    header("Location: ../index.php");
+    header("Location: /index.php");
     exit;
 }
 
@@ -57,7 +57,7 @@ include("../includes/header.php");
         <?php if ($success): ?>
         <div class="alert alert-success">
             <i class="fa-solid fa-circle-check"></i> <?php echo $success; ?>
-            <a href="login.php">Ir a iniciar sesión →</a>
+            <a href="/pages/login.php">Ir a iniciar sesión →</a>
         </div>
         <?php endif; ?>
 
@@ -80,7 +80,7 @@ include("../includes/header.php");
         </form>
 
         <p class="auth-link">
-            ¿Ya tienes cuenta? <a href="login.php">Iniciar sesión</a>
+            ¿Ya tienes cuenta? <a href="/pages/login.php">Iniciar sesión</a>
         </p>
     </div>
 </section>

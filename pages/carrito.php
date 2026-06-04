@@ -8,7 +8,6 @@ $items = [];
 
 if (isset($_SESSION['usuario_id'])) {
     $usuario_id = intval($_SESSION['usuario_id']);
-
     $res = mysqli_query($conn,
         "SELECT l.*, COUNT(*) as cantidad, l.precio * COUNT(*) as subtotal
          FROM carrito c
@@ -16,25 +15,21 @@ if (isset($_SESSION['usuario_id'])) {
          WHERE c.usuario_id = $usuario_id
          GROUP BY c.libro_id"
     );
-
     while ($row = mysqli_fetch_array($res)) {
         $total += $row['subtotal'];
         $items[] = $row;
     }
 }
 
-// Finalizar compra
 if (isset($_POST['finalizar']) && count($items) > 0) {
     foreach ($items as $item) {
         $libro_id = intval($item['id']);
         $cantidad = intval($item['cantidad']);
-        // Descontar stock real al comprar
         mysqli_query($conn, "UPDATE libros SET stock = stock - $cantidad WHERE id=$libro_id");
     }
-    // Vaciar carrito
     $usuario_id = intval($_SESSION['usuario_id']);
     mysqli_query($conn, "DELETE FROM carrito WHERE usuario_id=$usuario_id");
-    header("Location: /bookstore/pages/carrito.php?compra_exitosa=1");
+    header("Location: /pages/carrito.php?compra_exitosa=1");
     exit;
 }
 ?>
@@ -54,9 +49,9 @@ if (isset($_POST['finalizar']) && count($items) > 0) {
         <div class="cart-items">
             <?php foreach ($items as $row): ?>
             <div class="cart-card">
-                <img src="/bookstore/assets/img/<?php echo htmlspecialchars($row['imagen']); ?>"
+                <img src="/assets/img/<?php echo htmlspecialchars($row['imagen']); ?>"
                      alt="<?php echo htmlspecialchars($row['titulo']); ?>"
-                     onerror="this.src='/bookstore/assets/img/placeholder.svg'">
+                     onerror="this.src='/assets/img/placeholder.svg'">
                 <div class="cart-info">
                     <span class="genre-tag"><?php echo htmlspecialchars($row['genero']); ?></span>
                     <h3><?php echo htmlspecialchars($row['titulo']); ?></h3>
@@ -93,7 +88,7 @@ if (isset($_POST['finalizar']) && count($items) > 0) {
                     <i class="fa-solid fa-lock"></i> Finalizar compra
                 </button>
             </form>
-            <a href="catalogo.php" class="btn-outline" style="display:block;text-align:center;margin-top:12px;">
+            <a href="/pages/catalogo.php" class="btn-outline" style="display:block;text-align:center;margin-top:12px;">
                 ← Seguir comprando
             </a>
             <a href="vaciar-carrito.php" class="btn-clear">Vaciar carrito</a>
@@ -105,7 +100,7 @@ if (isset($_POST['finalizar']) && count($items) > 0) {
         <div class="empty-icon">🛒</div>
         <h2>Tu carrito está vacío</h2>
         <p>Explora nuestro catálogo y agrega los libros que te gusten.</p>
-        <a href="catalogo.php" class="btn-hero">Explorar catálogo</a>
+        <a href="/pages/catalogo.php" class="btn-hero">Explorar catálogo</a>
     </div>
     <?php endif; ?>
 </section>
