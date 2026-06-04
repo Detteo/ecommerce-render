@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
 
 INSERT INTO libros (titulo, autor, genero, descripcion, precio, imagen) VALUES
 -- SUSPENSO (3)
-('It', 'Stephen King', 'Suspenso', 'En la ciudad de Derry, un grupo de niños enfrenta un terror que regresa cada 27 años con la forma de un payaso demoníaco llamado Pennywise.', 65000, 'it.jpg'),
+('it', 'Stephen King', 'Suspenso', 'En la ciudad de Derry, un grupo de niños enfrenta un terror que regresa cada 27 años con la forma de un payaso demoníaco llamado Pennywise.', 65000, 'it.jpg'),
 ('La Chica del Tren', 'Paula Hawkins', 'Suspenso', 'Rachel observa a diario una pareja perfecta desde el tren. Un día la mujer desaparece y Rachel se convierte en testigo clave de un caso oscuro.', 58000, 'chica-tren.jpg'),
 ('Gone Girl', 'Gillian Flynn', 'Suspenso', 'El día de su quinto aniversario, Amy Dunne desaparece. Su esposo Nick se convierte en el principal sospechoso en un caso lleno de mentiras.', 62000, 'gone-girl.jpg'),
 -- FANTASÍA (3)
