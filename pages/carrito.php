@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("../includes/conexion.php");
-include("../includes/header.php");
 
 $total = 0;
 $items = [];
@@ -21,6 +20,7 @@ if (isset($_SESSION['usuario_id'])) {
     }
 }
 
+// Procesar compra ANTES de incluir el header
 if (isset($_POST['finalizar']) && count($items) > 0) {
     $usuario_id = intval($_SESSION['usuario_id']);
     foreach ($items as $item) {
@@ -29,16 +29,18 @@ if (isset($_POST['finalizar']) && count($items) > 0) {
         mysqli_query($conn, "UPDATE libros SET stock = stock - $cantidad WHERE id=$libro_id");
     }
     mysqli_query($conn, "DELETE FROM carrito WHERE usuario_id=$usuario_id");
-    session_write_close();
     header("Location: /pages/carrito.php?compra_exitosa=1");
     exit;
 }
+
+include("../includes/header.php");
+?>
 
 <section class="catalog-section">
     <h1 class="title">🛒 Mi Carrito</h1>
 
     <?php if (isset($_GET['compra_exitosa'])): ?>
-    <div class="alert alert-success" style="max-width:600px;margin:0 auto 30px;display:flex;">
+    <div class="alert alert-success" style="max-width:600px;margin:0 auto 30px;display:flex;gap:10px;">
         <i class="fa-solid fa-circle-check"></i>
         ¡Compra realizada con éxito! Gracias por tu pedido. 🎉
     </div>
