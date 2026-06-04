@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: bookstore
+    env: php
+    buildCommand: ""
+    startCommand: ""
